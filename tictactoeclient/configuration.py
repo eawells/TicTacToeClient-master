@@ -10,6 +10,6 @@ JOIN_PORT = 3333
 # an m,n,k game has M horizontal cells, N vertical cells, and
 # a winning line length of K in the horizontal, vertical, or
 # diagonal directions
-GAME_M = 3
-GAME_N = 3
-GAME_K = 3
+GAME_M = 15
+GAME_N = 15
+GAME_K = 15

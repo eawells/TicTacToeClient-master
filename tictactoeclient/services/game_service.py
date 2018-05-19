@@ -24,20 +24,31 @@ class GameService(object):
         else:
             return self._choose_next_move(updated_game)
 
-    @staticmethod
-    def _choose_next_move(updated_game):
+
+
+
+    def _choose_next_move(self, updated_game):
         unmarked_cells = []
+        print "This player is x: "
+        print (self.game_mode == CREATE_GAME_MODE or self._is_player_x(updated_game['player_x']))
         for y in range(0, updated_game['size_y']):
             for x in range(0, updated_game['size_x']):
+
                 if not next((cell for cell in updated_game['cells'] if
                              cell['x'] == x and cell['y'] == y), None):
                     unmarked_cells.append((x, y))
 
-        next_move = unmarked_cells[randint(0, len(unmarked_cells) - 1)]
+        next_move = unmarked_cells[(len(unmarked_cells) - 1)/2]
 
         move_x = next_move[0]
         move_y = next_move[1]
         return {'x': move_x, 'y': move_y}
+
+
+
+
+
+
 
     def _display_game_result(self, player_x, player_o):
         print ""
